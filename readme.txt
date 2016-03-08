@@ -1,4 +1,5 @@
-Hello!!!
-Adding some text
-Added feature1
-Added Feature 2
+This is a readme file.
+It has 2 features
+Feature 1
+Feature 2
+Added Bugfix
