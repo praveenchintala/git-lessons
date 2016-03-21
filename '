@@ -1,0 +1,696 @@
+Binary file .git/.COMMIT_EDITMSG.swo matches
+Binary file .git/.COMMIT_EDITMSG.swp matches
+.git/COMMIT_EDITMSG:Fixing readme text, BUG-1234
+.git/config:[core]
+.git/config:	repositoryformatversion = 0
+.git/config:	filemode = false
+.git/config:	bare = false
+.git/config:	logallrefupdates = true
+.git/config:	symlinks = false
+.git/config:	ignorecase = true
+.git/config:	hideDotFiles = dotGitOnly
+.git/config:[remote "origin"]
+.git/config:	url = https://github.com/praveenchintala/git-lessons.git
+.git/config:	fetch = +refs/heads/*:refs/remotes/origin/*
+.git/config:[branch "master"]
+.git/config:	remote = origin
+.git/config:	merge = refs/heads/master
+.git/config:[alias]
+.git/config:	lga = log --graph --oneline --all --decorate
+.git/description:Unnamed repository; edit this file 'description' to name the repository.
+.git/FETCH_HEAD:d71526f7943b5e317c2f2c9392a88232b7a925d8		branch 'master' of https://github.com/praveenchintala/git-lessons
+.git/HEAD:ref: refs/heads/master
+.git/hooks/applypatch-msg.sample:#!/bin/sh
+.git/hooks/applypatch-msg.sample:#
+.git/hooks/applypatch-msg.sample:# An example hook script to check the commit log message taken by
+.git/hooks/applypatch-msg.sample:# applypatch from an e-mail message.
+.git/hooks/applypatch-msg.sample:#
+.git/hooks/applypatch-msg.sample:# The hook should exit with non-zero status after issuing an
+.git/hooks/applypatch-msg.sample:# appropriate message if it wants to stop the commit.  The hook is
+.git/hooks/applypatch-msg.sample:# allowed to edit the commit message file.
+.git/hooks/applypatch-msg.sample:#
+.git/hooks/applypatch-msg.sample:# To enable this hook, rename this file to "applypatch-msg".
+.git/hooks/applypatch-msg.sample:
+.git/hooks/applypatch-msg.sample:. git-sh-setup
+.git/hooks/applypatch-msg.sample:commitmsg="$(git rev-parse --git-path hooks/commit-msg)"
+.git/hooks/applypatch-msg.sample:test -x "$commitmsg" && exec "$commitmsg" ${1+"$@"}
+.git/hooks/applypatch-msg.sample::
+.git/hooks/commit-msg.sample:#!/bin/sh
+.git/hooks/commit-msg.sample:#
+.git/hooks/commit-msg.sample:# An example hook script to check the commit log message.
+.git/hooks/commit-msg.sample:# Called by "git commit" with one argument, the name of the file
+.git/hooks/commit-msg.sample:# that has the commit message.  The hook should exit with non-zero
+.git/hooks/commit-msg.sample:# status after issuing an appropriate message if it wants to stop the
+.git/hooks/commit-msg.sample:# commit.  The hook is allowed to edit the commit message file.
+.git/hooks/commit-msg.sample:#
+.git/hooks/commit-msg.sample:# To enable this hook, rename this file to "commit-msg".
+.git/hooks/commit-msg.sample:
+.git/hooks/commit-msg.sample:# Uncomment the below to add a Signed-off-by line to the message.
+.git/hooks/commit-msg.sample:# Doing this in a hook is a bad idea in general, but the prepare-commit-msg
+.git/hooks/commit-msg.sample:# hook is more suited to it.
+.git/hooks/commit-msg.sample:#
+.git/hooks/commit-msg.sample:# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+.git/hooks/commit-msg.sample:# grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+.git/hooks/commit-msg.sample:
+.git/hooks/commit-msg.sample:# This example catches duplicate Signed-off-by lines.
+.git/hooks/commit-msg.sample:
+.git/hooks/commit-msg.sample:test "" = "$(grep '^Signed-off-by: ' "$1" |
+.git/hooks/commit-msg.sample:	 sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
+.git/hooks/commit-msg.sample:	echo >&2 Duplicate Signed-off-by lines.
+.git/hooks/commit-msg.sample:	exit 1
+.git/hooks/commit-msg.sample:}
+.git/hooks/post-update.sample:#!/bin/sh
+.git/hooks/post-update.sample:#
+.git/hooks/post-update.sample:# An example hook script to prepare a packed repository for use over
+.git/hooks/post-update.sample:# dumb transports.
+.git/hooks/post-update.sample:#
+.git/hooks/post-update.sample:# To enable this hook, rename this file to "post-update".
+.git/hooks/post-update.sample:
+.git/hooks/post-update.sample:exec git update-server-info
+.git/hooks/pre-applypatch.sample:#!/bin/sh
+.git/hooks/pre-applypatch.sample:#
+.git/hooks/pre-applypatch.sample:# An example hook script to verify what is about to be committed
+.git/hooks/pre-applypatch.sample:# by applypatch from an e-mail message.
+.git/hooks/pre-applypatch.sample:#
+.git/hooks/pre-applypatch.sample:# The hook should exit with non-zero status after issuing an
+.git/hooks/pre-applypatch.sample:# appropriate message if it wants to stop the commit.
+.git/hooks/pre-applypatch.sample:#
+.git/hooks/pre-applypatch.sample:# To enable this hook, rename this file to "pre-applypatch".
+.git/hooks/pre-applypatch.sample:
+.git/hooks/pre-applypatch.sample:. git-sh-setup
+.git/hooks/pre-applypatch.sample:precommit="$(git rev-parse --git-path hooks/pre-commit)"
+.git/hooks/pre-applypatch.sample:test -x "$precommit" && exec "$precommit" ${1+"$@"}
+.git/hooks/pre-applypatch.sample::
+.git/hooks/pre-commit.sample:#!/bin/sh
+.git/hooks/pre-commit.sample:#
+.git/hooks/pre-commit.sample:# An example hook script to verify what is about to be committed.
+.git/hooks/pre-commit.sample:# Called by "git commit" with no arguments.  The hook should
+.git/hooks/pre-commit.sample:# exit with non-zero status after issuing an appropriate message if
+.git/hooks/pre-commit.sample:# it wants to stop the commit.
+.git/hooks/pre-commit.sample:#
+.git/hooks/pre-commit.sample:# To enable this hook, rename this file to "pre-commit".
+.git/hooks/pre-commit.sample:
+.git/hooks/pre-commit.sample:if git rev-parse --verify HEAD >/dev/null 2>&1
+.git/hooks/pre-commit.sample:then
+.git/hooks/pre-commit.sample:	against=HEAD
+.git/hooks/pre-commit.sample:else
+.git/hooks/pre-commit.sample:	# Initial commit: diff against an empty tree object
+.git/hooks/pre-commit.sample:	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+.git/hooks/pre-commit.sample:fi
+.git/hooks/pre-commit.sample:
+.git/hooks/pre-commit.sample:# If you want to allow non-ASCII filenames set this variable to true.
+.git/hooks/pre-commit.sample:allownonascii=$(git config --bool hooks.allownonascii)
+.git/hooks/pre-commit.sample:
+.git/hooks/pre-commit.sample:# Redirect output to stderr.
+.git/hooks/pre-commit.sample:exec 1>&2
+.git/hooks/pre-commit.sample:
+.git/hooks/pre-commit.sample:# Cross platform projects tend to avoid non-ASCII filenames; prevent
+.git/hooks/pre-commit.sample:# them from being added to the repository. We exploit the fact that the
+.git/hooks/pre-commit.sample:# printable range starts at the space character and ends with tilde.
+.git/hooks/pre-commit.sample:if [ "$allownonascii" != "true" ] &&
+.git/hooks/pre-commit.sample:	# Note that the use of brackets around a tr range is ok here, (it's
+.git/hooks/pre-commit.sample:	# even required, for portability to Solaris 10's /usr/bin/tr), since
+.git/hooks/pre-commit.sample:	# the square bracket bytes happen to fall in the designated range.
+.git/hooks/pre-commit.sample:	test $(git diff --cached --name-only --diff-filter=A -z $against |
+.git/hooks/pre-commit.sample:	  LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0
+.git/hooks/pre-commit.sample:then
+.git/hooks/pre-commit.sample:	cat <<\EOF
+.git/hooks/pre-commit.sample:Error: Attempt to add a non-ASCII file name.
+.git/hooks/pre-commit.sample:
+.git/hooks/pre-commit.sample:This can cause problems if you want to work with people on other platforms.
+.git/hooks/pre-commit.sample:
+.git/hooks/pre-commit.sample:To be portable it is advisable to rename the file.
+.git/hooks/pre-commit.sample:
+.git/hooks/pre-commit.sample:If you know what you are doing you can disable this check using:
+.git/hooks/pre-commit.sample:
+.git/hooks/pre-commit.sample:  git config hooks.allownonascii true
+.git/hooks/pre-commit.sample:EOF
+.git/hooks/pre-commit.sample:	exit 1
+.git/hooks/pre-commit.sample:fi
+.git/hooks/pre-commit.sample:
+.git/hooks/pre-commit.sample:# If there are whitespace errors, print the offending file names and fail.
+.git/hooks/pre-commit.sample:exec git diff-index --check --cached $against --
+.git/hooks/pre-push.sample:#!/bin/sh
+.git/hooks/pre-push.sample:
+.git/hooks/pre-push.sample:# An example hook script to verify what is about to be pushed.  Called by "git
+.git/hooks/pre-push.sample:# push" after it has checked the remote status, but before anything has been
+.git/hooks/pre-push.sample:# pushed.  If this script exits with a non-zero status nothing will be pushed.
+.git/hooks/pre-push.sample:#
+.git/hooks/pre-push.sample:# This hook is called with the following parameters:
+.git/hooks/pre-push.sample:#
+.git/hooks/pre-push.sample:# $1 -- Name of the remote to which the push is being done
+.git/hooks/pre-push.sample:# $2 -- URL to which the push is being done
+.git/hooks/pre-push.sample:#
+.git/hooks/pre-push.sample:# If pushing without using a named remote those arguments will be equal.
+.git/hooks/pre-push.sample:#
+.git/hooks/pre-push.sample:# Information about the commits which are being pushed is supplied as lines to
+.git/hooks/pre-push.sample:# the standard input in the form:
+.git/hooks/pre-push.sample:#
+.git/hooks/pre-push.sample:#   <local ref> <local sha1> <remote ref> <remote sha1>
+.git/hooks/pre-push.sample:#
+.git/hooks/pre-push.sample:# This sample shows how to prevent push of commits where the log message starts
+.git/hooks/pre-push.sample:# with "WIP" (work in progress).
+.git/hooks/pre-push.sample:
+.git/hooks/pre-push.sample:remote="$1"
+.git/hooks/pre-push.sample:url="$2"
+.git/hooks/pre-push.sample:
+.git/hooks/pre-push.sample:z40=0000000000000000000000000000000000000000
+.git/hooks/pre-push.sample:
+.git/hooks/pre-push.sample:while read local_ref local_sha remote_ref remote_sha
+.git/hooks/pre-push.sample:do
+.git/hooks/pre-push.sample:	if [ "$local_sha" = $z40 ]
+.git/hooks/pre-push.sample:	then
+.git/hooks/pre-push.sample:		# Handle delete
+.git/hooks/pre-push.sample:		:
+.git/hooks/pre-push.sample:	else
+.git/hooks/pre-push.sample:		if [ "$remote_sha" = $z40 ]
+.git/hooks/pre-push.sample:		then
+.git/hooks/pre-push.sample:			# New branch, examine all commits
+.git/hooks/pre-push.sample:			range="$local_sha"
+.git/hooks/pre-push.sample:		else
+.git/hooks/pre-push.sample:			# Update to existing branch, examine new commits
+.git/hooks/pre-push.sample:			range="$remote_sha..$local_sha"
+.git/hooks/pre-push.sample:		fi
+.git/hooks/pre-push.sample:
+.git/hooks/pre-push.sample:		# Check for WIP commit
+.git/hooks/pre-push.sample:		commit=`git rev-list -n 1 --grep '^WIP' "$range"`
+.git/hooks/pre-push.sample:		if [ -n "$commit" ]
+.git/hooks/pre-push.sample:		then
+.git/hooks/pre-push.sample:			echo >&2 "Found WIP commit in $local_ref, not pushing"
+.git/hooks/pre-push.sample:			exit 1
+.git/hooks/pre-push.sample:		fi
+.git/hooks/pre-push.sample:	fi
+.git/hooks/pre-push.sample:done
+.git/hooks/pre-push.sample:
+.git/hooks/pre-push.sample:exit 0
+.git/hooks/pre-rebase.sample:#!/bin/sh
+.git/hooks/pre-rebase.sample:#
+.git/hooks/pre-rebase.sample:# Copyright (c) 2006, 2008 Junio C Hamano
+.git/hooks/pre-rebase.sample:#
+.git/hooks/pre-rebase.sample:# The "pre-rebase" hook is run just before "git rebase" starts doing
+.git/hooks/pre-rebase.sample:# its job, and can prevent the command from running by exiting with
+.git/hooks/pre-rebase.sample:# non-zero status.
+.git/hooks/pre-rebase.sample:#
+.git/hooks/pre-rebase.sample:# The hook is called with the following parameters:
+.git/hooks/pre-rebase.sample:#
+.git/hooks/pre-rebase.sample:# $1 -- the upstream the series was forked from.
+.git/hooks/pre-rebase.sample:# $2 -- the branch being rebased (or empty when rebasing the current branch).
+.git/hooks/pre-rebase.sample:#
+.git/hooks/pre-rebase.sample:# This sample shows how to prevent topic branches that are already
+.git/hooks/pre-rebase.sample:# merged to 'next' branch from getting rebased, because allowing it
+.git/hooks/pre-rebase.sample:# would result in rebasing already published history.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:publish=next
+.git/hooks/pre-rebase.sample:basebranch="$1"
+.git/hooks/pre-rebase.sample:if test "$#" = 2
+.git/hooks/pre-rebase.sample:then
+.git/hooks/pre-rebase.sample:	topic="refs/heads/$2"
+.git/hooks/pre-rebase.sample:else
+.git/hooks/pre-rebase.sample:	topic=`git symbolic-ref HEAD` ||
+.git/hooks/pre-rebase.sample:	exit 0 ;# we do not interrupt rebasing detached HEAD
+.git/hooks/pre-rebase.sample:fi
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:case "$topic" in
+.git/hooks/pre-rebase.sample:refs/heads/??/*)
+.git/hooks/pre-rebase.sample:	;;
+.git/hooks/pre-rebase.sample:*)
+.git/hooks/pre-rebase.sample:	exit 0 ;# we do not interrupt others.
+.git/hooks/pre-rebase.sample:	;;
+.git/hooks/pre-rebase.sample:esac
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:# Now we are dealing with a topic branch being rebased
+.git/hooks/pre-rebase.sample:# on top of master.  Is it OK to rebase it?
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:# Does the topic really exist?
+.git/hooks/pre-rebase.sample:git show-ref -q "$topic" || {
+.git/hooks/pre-rebase.sample:	echo >&2 "No such branch $topic"
+.git/hooks/pre-rebase.sample:	exit 1
+.git/hooks/pre-rebase.sample:}
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:# Is topic fully merged to master?
+.git/hooks/pre-rebase.sample:not_in_master=`git rev-list --pretty=oneline ^master "$topic"`
+.git/hooks/pre-rebase.sample:if test -z "$not_in_master"
+.git/hooks/pre-rebase.sample:then
+.git/hooks/pre-rebase.sample:	echo >&2 "$topic is fully merged to master; better remove it."
+.git/hooks/pre-rebase.sample:	exit 1 ;# we could allow it, but there is no point.
+.git/hooks/pre-rebase.sample:fi
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:# Is topic ever merged to next?  If so you should not be rebasing it.
+.git/hooks/pre-rebase.sample:only_next_1=`git rev-list ^master "^$topic" ${publish} | sort`
+.git/hooks/pre-rebase.sample:only_next_2=`git rev-list ^master           ${publish} | sort`
+.git/hooks/pre-rebase.sample:if test "$only_next_1" = "$only_next_2"
+.git/hooks/pre-rebase.sample:then
+.git/hooks/pre-rebase.sample:	not_in_topic=`git rev-list "^$topic" master`
+.git/hooks/pre-rebase.sample:	if test -z "$not_in_topic"
+.git/hooks/pre-rebase.sample:	then
+.git/hooks/pre-rebase.sample:		echo >&2 "$topic is already up-to-date with master"
+.git/hooks/pre-rebase.sample:		exit 1 ;# we could allow it, but there is no point.
+.git/hooks/pre-rebase.sample:	else
+.git/hooks/pre-rebase.sample:		exit 0
+.git/hooks/pre-rebase.sample:	fi
+.git/hooks/pre-rebase.sample:else
+.git/hooks/pre-rebase.sample:	not_in_next=`git rev-list --pretty=oneline ^${publish} "$topic"`
+.git/hooks/pre-rebase.sample:	/usr/bin/perl -e '
+.git/hooks/pre-rebase.sample:		my $topic = $ARGV[0];
+.git/hooks/pre-rebase.sample:		my $msg = "* $topic has commits already merged to public branch:\n";
+.git/hooks/pre-rebase.sample:		my (%not_in_next) = map {
+.git/hooks/pre-rebase.sample:			/^([0-9a-f]+) /;
+.git/hooks/pre-rebase.sample:			($1 => 1);
+.git/hooks/pre-rebase.sample:		} split(/\n/, $ARGV[1]);
+.git/hooks/pre-rebase.sample:		for my $elem (map {
+.git/hooks/pre-rebase.sample:				/^([0-9a-f]+) (.*)$/;
+.git/hooks/pre-rebase.sample:				[$1 => $2];
+.git/hooks/pre-rebase.sample:			} split(/\n/, $ARGV[2])) {
+.git/hooks/pre-rebase.sample:			if (!exists $not_in_next{$elem->[0]}) {
+.git/hooks/pre-rebase.sample:				if ($msg) {
+.git/hooks/pre-rebase.sample:					print STDERR $msg;
+.git/hooks/pre-rebase.sample:					undef $msg;
+.git/hooks/pre-rebase.sample:				}
+.git/hooks/pre-rebase.sample:				print STDERR " $elem->[1]\n";
+.git/hooks/pre-rebase.sample:			}
+.git/hooks/pre-rebase.sample:		}
+.git/hooks/pre-rebase.sample:	' "$topic" "$not_in_next" "$not_in_master"
+.git/hooks/pre-rebase.sample:	exit 1
+.git/hooks/pre-rebase.sample:fi
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:exit 0
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:################################################################
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:This sample hook safeguards topic branches that have been
+.git/hooks/pre-rebase.sample:published from being rewound.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:The workflow assumed here is:
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample: * Once a topic branch forks from "master", "master" is never
+.git/hooks/pre-rebase.sample:   merged into it again (either directly or indirectly).
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample: * Once a topic branch is fully cooked and merged into "master",
+.git/hooks/pre-rebase.sample:   it is deleted.  If you need to build on top of it to correct
+.git/hooks/pre-rebase.sample:   earlier mistakes, a new topic branch is created by forking at
+.git/hooks/pre-rebase.sample:   the tip of the "master".  This is not strictly necessary, but
+.git/hooks/pre-rebase.sample:   it makes it easier to keep your history simple.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample: * Whenever you need to test or publish your changes to topic
+.git/hooks/pre-rebase.sample:   branches, merge them into "next" branch.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:The script, being an example, hardcodes the publish branch name
+.git/hooks/pre-rebase.sample:to be "next", but it is trivial to make it configurable via
+.git/hooks/pre-rebase.sample:$GIT_DIR/config mechanism.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:With this workflow, you would want to know:
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:(1) ... if a topic branch has ever been merged to "next".  Young
+.git/hooks/pre-rebase.sample:    topic branches can have stupid mistakes you would rather
+.git/hooks/pre-rebase.sample:    clean up before publishing, and things that have not been
+.git/hooks/pre-rebase.sample:    merged into other branches can be easily rebased without
+.git/hooks/pre-rebase.sample:    affecting other people.  But once it is published, you would
+.git/hooks/pre-rebase.sample:    not want to rewind it.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:(2) ... if a topic branch has been fully merged to "master".
+.git/hooks/pre-rebase.sample:    Then you can delete it.  More importantly, you should not
+.git/hooks/pre-rebase.sample:    build on top of it -- other people may already want to
+.git/hooks/pre-rebase.sample:    change things related to the topic as patches against your
+.git/hooks/pre-rebase.sample:    "master", so if you need further changes, it is better to
+.git/hooks/pre-rebase.sample:    fork the topic (perhaps with the same name) afresh from the
+.git/hooks/pre-rebase.sample:    tip of "master".
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:Let's look at this example:
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:		   o---o---o---o---o---o---o---o---o---o "next"
+.git/hooks/pre-rebase.sample:		  /       /           /           /
+.git/hooks/pre-rebase.sample:		 /   a---a---b A     /           /
+.git/hooks/pre-rebase.sample:		/   /               /           /
+.git/hooks/pre-rebase.sample:	       /   /   c---c---c---c B         /
+.git/hooks/pre-rebase.sample:	      /   /   /             \         /
+.git/hooks/pre-rebase.sample:	     /   /   /   b---b C     \       /
+.git/hooks/pre-rebase.sample:	    /   /   /   /             \     /
+.git/hooks/pre-rebase.sample:    ---o---o---o---o---o---o---o---o---o---o---o "master"
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:A, B and C are topic branches.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample: * A has one fix since it was merged up to "next".
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample: * B has finished.  It has been fully merged up to "master" and "next",
+.git/hooks/pre-rebase.sample:   and is ready to be deleted.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample: * C has not merged to "next" at all.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:We would want to allow C to be rebased, refuse A, and encourage
+.git/hooks/pre-rebase.sample:B to be deleted.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:To compute (1):
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:	git rev-list ^master ^topic next
+.git/hooks/pre-rebase.sample:	git rev-list ^master        next
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:	if these match, topic has not merged in next at all.
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:To compute (2):
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:	git rev-list master..topic
+.git/hooks/pre-rebase.sample:
+.git/hooks/pre-rebase.sample:	if this is empty, it is fully merged to "master".
+.git/hooks/prepare-commit-msg.sample:#!/bin/sh
+.git/hooks/prepare-commit-msg.sample:#
+.git/hooks/prepare-commit-msg.sample:# An example hook script to prepare the commit log message.
+.git/hooks/prepare-commit-msg.sample:# Called by "git commit" with the name of the file that has the
+.git/hooks/prepare-commit-msg.sample:# commit message, followed by the description of the commit
+.git/hooks/prepare-commit-msg.sample:# message's source.  The hook's purpose is to edit the commit
+.git/hooks/prepare-commit-msg.sample:# message file.  If the hook fails with a non-zero status,
+.git/hooks/prepare-commit-msg.sample:# the commit is aborted.
+.git/hooks/prepare-commit-msg.sample:#
+.git/hooks/prepare-commit-msg.sample:# To enable this hook, rename this file to "prepare-commit-msg".
+.git/hooks/prepare-commit-msg.sample:
+.git/hooks/prepare-commit-msg.sample:# This hook includes three examples.  The first comments out the
+.git/hooks/prepare-commit-msg.sample:# "Conflicts:" part of a merge commit.
+.git/hooks/prepare-commit-msg.sample:#
+.git/hooks/prepare-commit-msg.sample:# The second includes the output of "git diff --name-status -r"
+.git/hooks/prepare-commit-msg.sample:# into the message, just before the "git status" output.  It is
+.git/hooks/prepare-commit-msg.sample:# commented because it doesn't cope with --amend or with squashed
+.git/hooks/prepare-commit-msg.sample:# commits.
+.git/hooks/prepare-commit-msg.sample:#
+.git/hooks/prepare-commit-msg.sample:# The third example adds a Signed-off-by line to the message, that can
+.git/hooks/prepare-commit-msg.sample:# still be edited.  This is rarely a good idea.
+.git/hooks/prepare-commit-msg.sample:
+.git/hooks/prepare-commit-msg.sample:case "$2,$3" in
+.git/hooks/prepare-commit-msg.sample:  merge,)
+.git/hooks/prepare-commit-msg.sample:    /usr/bin/perl -i.bak -ne 's/^/# /, s/^# #/#/ if /^Conflicts/ .. /#/; print' "$1" ;;
+.git/hooks/prepare-commit-msg.sample:
+.git/hooks/prepare-commit-msg.sample:# ,|template,)
+.git/hooks/prepare-commit-msg.sample:#   /usr/bin/perl -i.bak -pe '
+.git/hooks/prepare-commit-msg.sample:#      print "\n" . `git diff --cached --name-status -r`
+.git/hooks/prepare-commit-msg.sample:#	 if /^#/ && $first++ == 0' "$1" ;;
+.git/hooks/prepare-commit-msg.sample:
+.git/hooks/prepare-commit-msg.sample:  *) ;;
+.git/hooks/prepare-commit-msg.sample:esac
+.git/hooks/prepare-commit-msg.sample:
+.git/hooks/prepare-commit-msg.sample:# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+.git/hooks/prepare-commit-msg.sample:# grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+.git/hooks/update.sample:#!/bin/sh
+.git/hooks/update.sample:#
+.git/hooks/update.sample:# An example hook script to blocks unannotated tags from entering.
+.git/hooks/update.sample:# Called by "git receive-pack" with arguments: refname sha1-old sha1-new
+.git/hooks/update.sample:#
+.git/hooks/update.sample:# To enable this hook, rename this file to "update".
+.git/hooks/update.sample:#
+.git/hooks/update.sample:# Config
+.git/hooks/update.sample:# ------
+.git/hooks/update.sample:# hooks.allowunannotated
+.git/hooks/update.sample:#   This boolean sets whether unannotated tags will be allowed into the
+.git/hooks/update.sample:#   repository.  By default they won't be.
+.git/hooks/update.sample:# hooks.allowdeletetag
+.git/hooks/update.sample:#   This boolean sets whether deleting tags will be allowed in the
+.git/hooks/update.sample:#   repository.  By default they won't be.
+.git/hooks/update.sample:# hooks.allowmodifytag
+.git/hooks/update.sample:#   This boolean sets whether a tag may be modified after creation. By default
+.git/hooks/update.sample:#   it won't be.
+.git/hooks/update.sample:# hooks.allowdeletebranch
+.git/hooks/update.sample:#   This boolean sets whether deleting branches will be allowed in the
+.git/hooks/update.sample:#   repository.  By default they won't be.
+.git/hooks/update.sample:# hooks.denycreatebranch
+.git/hooks/update.sample:#   This boolean sets whether remotely creating branches will be denied
+.git/hooks/update.sample:#   in the repository.  By default this is allowed.
+.git/hooks/update.sample:#
+.git/hooks/update.sample:
+.git/hooks/update.sample:# --- Command line
+.git/hooks/update.sample:refname="$1"
+.git/hooks/update.sample:oldrev="$2"
+.git/hooks/update.sample:newrev="$3"
+.git/hooks/update.sample:
+.git/hooks/update.sample:# --- Safety check
+.git/hooks/update.sample:if [ -z "$GIT_DIR" ]; then
+.git/hooks/update.sample:	echo "Don't run this script from the command line." >&2
+.git/hooks/update.sample:	echo " (if you want, you could supply GIT_DIR then run" >&2
+.git/hooks/update.sample:	echo "  $0 <ref> <oldrev> <newrev>)" >&2
+.git/hooks/update.sample:	exit 1
+.git/hooks/update.sample:fi
+.git/hooks/update.sample:
+.git/hooks/update.sample:if [ -z "$refname" -o -z "$oldrev" -o -z "$newrev" ]; then
+.git/hooks/update.sample:	echo "usage: $0 <ref> <oldrev> <newrev>" >&2
+.git/hooks/update.sample:	exit 1
+.git/hooks/update.sample:fi
+.git/hooks/update.sample:
+.git/hooks/update.sample:# --- Config
+.git/hooks/update.sample:allowunannotated=$(git config --bool hooks.allowunannotated)
+.git/hooks/update.sample:allowdeletebranch=$(git config --bool hooks.allowdeletebranch)
+.git/hooks/update.sample:denycreatebranch=$(git config --bool hooks.denycreatebranch)
+.git/hooks/update.sample:allowdeletetag=$(git config --bool hooks.allowdeletetag)
+.git/hooks/update.sample:allowmodifytag=$(git config --bool hooks.allowmodifytag)
+.git/hooks/update.sample:
+.git/hooks/update.sample:# check for no description
+.git/hooks/update.sample:projectdesc=$(sed -e '1q' "$GIT_DIR/description")
+.git/hooks/update.sample:case "$projectdesc" in
+.git/hooks/update.sample:"Unnamed repository"* | "")
+.git/hooks/update.sample:	echo "*** Project description file hasn't been set" >&2
+.git/hooks/update.sample:	exit 1
+.git/hooks/update.sample:	;;
+.git/hooks/update.sample:esac
+.git/hooks/update.sample:
+.git/hooks/update.sample:# --- Check types
+.git/hooks/update.sample:# if $newrev is 0000...0000, it's a commit to delete a ref.
+.git/hooks/update.sample:zero="0000000000000000000000000000000000000000"
+.git/hooks/update.sample:if [ "$newrev" = "$zero" ]; then
+.git/hooks/update.sample:	newrev_type=delete
+.git/hooks/update.sample:else
+.git/hooks/update.sample:	newrev_type=$(git cat-file -t $newrev)
+.git/hooks/update.sample:fi
+.git/hooks/update.sample:
+.git/hooks/update.sample:case "$refname","$newrev_type" in
+.git/hooks/update.sample:	refs/tags/*,commit)
+.git/hooks/update.sample:		# un-annotated tag
+.git/hooks/update.sample:		short_refname=${refname##refs/tags/}
+.git/hooks/update.sample:		if [ "$allowunannotated" != "true" ]; then
+.git/hooks/update.sample:			echo "*** The un-annotated tag, $short_refname, is not allowed in this repository" >&2
+.git/hooks/update.sample:			echo "*** Use 'git tag [ -a | -s ]' for tags you want to propagate." >&2
+.git/hooks/update.sample:			exit 1
+.git/hooks/update.sample:		fi
+.git/hooks/update.sample:		;;
+.git/hooks/update.sample:	refs/tags/*,delete)
+.git/hooks/update.sample:		# delete tag
+.git/hooks/update.sample:		if [ "$allowdeletetag" != "true" ]; then
+.git/hooks/update.sample:			echo "*** Deleting a tag is not allowed in this repository" >&2
+.git/hooks/update.sample:			exit 1
+.git/hooks/update.sample:		fi
+.git/hooks/update.sample:		;;
+.git/hooks/update.sample:	refs/tags/*,tag)
+.git/hooks/update.sample:		# annotated tag
+.git/hooks/update.sample:		if [ "$allowmodifytag" != "true" ] && git rev-parse $refname > /dev/null 2>&1
+.git/hooks/update.sample:		then
+.git/hooks/update.sample:			echo "*** Tag '$refname' already exists." >&2
+.git/hooks/update.sample:			echo "*** Modifying a tag is not allowed in this repository." >&2
+.git/hooks/update.sample:			exit 1
+.git/hooks/update.sample:		fi
+.git/hooks/update.sample:		;;
+.git/hooks/update.sample:	refs/heads/*,commit)
+.git/hooks/update.sample:		# branch
+.git/hooks/update.sample:		if [ "$oldrev" = "$zero" -a "$denycreatebranch" = "true" ]; then
+.git/hooks/update.sample:			echo "*** Creating a branch is not allowed in this repository" >&2
+.git/hooks/update.sample:			exit 1
+.git/hooks/update.sample:		fi
+.git/hooks/update.sample:		;;
+.git/hooks/update.sample:	refs/heads/*,delete)
+.git/hooks/update.sample:		# delete branch
+.git/hooks/update.sample:		if [ "$allowdeletebranch" != "true" ]; then
+.git/hooks/update.sample:			echo "*** Deleting a branch is not allowed in this repository" >&2
+.git/hooks/update.sample:			exit 1
+.git/hooks/update.sample:		fi
+.git/hooks/update.sample:		;;
+.git/hooks/update.sample:	refs/remotes/*,commit)
+.git/hooks/update.sample:		# tracking branch
+.git/hooks/update.sample:		;;
+.git/hooks/update.sample:	refs/remotes/*,delete)
+.git/hooks/update.sample:		# delete tracking branch
+.git/hooks/update.sample:		if [ "$allowdeletebranch" != "true" ]; then
+.git/hooks/update.sample:			echo "*** Deleting a tracking branch is not allowed in this repository" >&2
+.git/hooks/update.sample:			exit 1
+.git/hooks/update.sample:		fi
+.git/hooks/update.sample:		;;
+.git/hooks/update.sample:	*)
+.git/hooks/update.sample:		# Anything else (is there anything else?)
+.git/hooks/update.sample:		echo "*** Update hook: unknown type of update to ref $refname of type $newrev_type" >&2
+.git/hooks/update.sample:		exit 1
+.git/hooks/update.sample:		;;
+.git/hooks/update.sample:esac
+.git/hooks/update.sample:
+.git/hooks/update.sample:# --- Finished
+.git/hooks/update.sample:exit 0
+Binary file .git/index matches
+.git/info/exclude:# git ls-files --others --exclude-from=.git/info/exclude
+.git/info/exclude:# Lines that start with '#' are comments.
+.git/info/exclude:# For a project mostly in C, the following would be a good set of
+.git/info/exclude:# exclude patterns (uncomment them if you want to use them):
+.git/info/exclude:# *.[oa]
+.git/info/exclude:# *~
+.git/logs/HEAD:0000000000000000000000000000000000000000 15d113eccc3405e79abbc9e47f25b12e8378e0fe Praveen Chinthala <praveen.chinthala@aveva.com> 1456897595 +0530	commit (initial): hello
+.git/logs/HEAD:15d113eccc3405e79abbc9e47f25b12e8378e0fe b41a6f7e9dad03960a9bd96d7f7fdde0412b9490 Praveen Chinthala <praveen.chinthala@aveva.com> 1456897776 +0530	commit: added new line
+.git/logs/HEAD:b41a6f7e9dad03960a9bd96d7f7fdde0412b9490 c6f0b623a9b93e36dfc25a5abe43325b84540c19 Praveen Chinthala <praveen.chinthala@aveva.com> 1456898092 +0530	commit: Added new Files
+.git/logs/HEAD:c6f0b623a9b93e36dfc25a5abe43325b84540c19 b6aaec3322ebdfefa5754044bda861a736bc9e0f Praveen Chinthala <praveen.chinthala@aveva.com> 1456898641 +0530	commit: Added code
+.git/logs/HEAD:b6aaec3322ebdfefa5754044bda861a736bc9e0f 8803f759cf3d97cf9c43372021ec4b41f8ed2c0f Praveen Chinthala <praveen.chinthala@aveva.com> 1456898741 +0530	commit: REmoved File
+.git/logs/HEAD:8803f759cf3d97cf9c43372021ec4b41f8ed2c0f 569bc37502c04abf4d23393d5eea1ab1038a12be Praveen Chinthala <praveen.chinthala@aveva.com> 1456899721 +0530	commit: Some logic
+.git/logs/HEAD:569bc37502c04abf4d23393d5eea1ab1038a12be 8803f759cf3d97cf9c43372021ec4b41f8ed2c0f Praveen Chinthala <praveen.chinthala@aveva.com> 1456899761 +0530	reset: moving to HEAD~1
+.git/logs/HEAD:8803f759cf3d97cf9c43372021ec4b41f8ed2c0f b590f8f32444947525539918c63675ab3d8b45ed Praveen Chinthala <praveen.chinthala@aveva.com> 1456900266 +0530	commit: Added GitIgnore
+.git/logs/HEAD:b590f8f32444947525539918c63675ab3d8b45ed c0b7f9c05c701eeadf278df3c25699945f8f96c7 Praveen Chinthala <praveen.chinthala@aveva.com> 1456908571 +0530	merge origin/master: Fast-forward
+.git/logs/HEAD:c0b7f9c05c701eeadf278df3c25699945f8f96c7 9d99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456909336 +0530	commit: Renaming login
+.git/logs/HEAD:9d99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456909712 +0530	commit: Deleting misc files
+.git/logs/HEAD:c19da553589e5588290e7807297a80c5ca08ea44 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456912368 +0530	checkout: moving from master to feature1
+.git/logs/HEAD:c19da553589e5588290e7807297a80c5ca08ea44 28646cc9967fdd423002120ce13e54bd5f2a6fe3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456912477 +0530	commit: FEature 1
+.git/logs/HEAD:28646cc9967fdd423002120ce13e54bd5f2a6fe3 9d99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456912707 +0530	checkout: moving from feature1 to hotfix-1
+.git/logs/HEAD:9d99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 b7708150420d32739b3f30f0dcc5174b2d46af15 Praveen Chinthala <praveen.chinthala@aveva.com> 1456912758 +0530	commit: Adding login text
+.git/logs/HEAD:b7708150420d32739b3f30f0dcc5174b2d46af15 28646cc9967fdd423002120ce13e54bd5f2a6fe3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456912827 +0530	checkout: moving from hotfix-1 to feature1
+.git/logs/HEAD:28646cc9967fdd423002120ce13e54bd5f2a6fe3 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456912878 +0530	checkout: moving from feature1 to master
+.git/logs/HEAD:c19da553589e5588290e7807297a80c5ca08ea44 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456914726 +0530	checkout: moving from master to feature-2
+.git/logs/HEAD:c19da553589e5588290e7807297a80c5ca08ea44 f661aae48f33b284344b414b288f31e4295a7a89 Praveen Chinthala <praveen.chinthala@aveva.com> 1456914782 +0530	commit: Added feature2
+.git/logs/HEAD:f661aae48f33b284344b414b288f31e4295a7a89 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456915495 +0530	checkout: moving from feature-2 to master
+.git/logs/HEAD:c19da553589e5588290e7807297a80c5ca08ea44 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456915536 +0530	checkout: moving from master to master
+.git/logs/HEAD:c19da553589e5588290e7807297a80c5ca08ea44 28646cc9967fdd423002120ce13e54bd5f2a6fe3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456915548 +0530	merge feature-1: Fast-forward
+.git/logs/HEAD:28646cc9967fdd423002120ce13e54bd5f2a6fe3 b053bca15720e12e4b4bad36bf542e25cc8cad8f Praveen Chinthala <praveen.chinthala@aveva.com> 1456915561 +0530	merge hotfix-1: Merge made by the 'recursive' strategy.
+.git/logs/HEAD:b053bca15720e12e4b4bad36bf542e25cc8cad8f 5ac5bacf118797becdc343c910e634dd6424e3a4 Praveen Chinthala <praveen.chinthala@aveva.com> 1456915693 +0530	commit (merge): Merging File
+.git/logs/HEAD:5ac5bacf118797becdc343c910e634dd6424e3a4 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456918617 +0530	checkout: moving from master to hotfix-2
+.git/logs/HEAD:c19da553589e5588290e7807297a80c5ca08ea44 56264a1d3538f33021f3fd44d65921831b47954a Praveen Chinthala <praveen.chinthala@aveva.com> 1456918692 +0530	commit: Fixing casing
+.git/logs/HEAD:56264a1d3538f33021f3fd44d65921831b47954a d71526f7943b5e317c2f2c9392a88232b7a925d8 Praveen Chinthala <praveen.chinthala@aveva.com> 1456918778 +0530	commit (merge): Merged content
+.git/logs/HEAD:d71526f7943b5e317c2f2c9392a88232b7a925d8 5ac5bacf118797becdc343c910e634dd6424e3a4 Praveen Chinthala <praveen.chinthala@aveva.com> 1456918812 +0530	checkout: moving from hotfix-2 to master
+.git/logs/HEAD:5ac5bacf118797becdc343c910e634dd6424e3a4 d71526f7943b5e317c2f2c9392a88232b7a925d8 Praveen Chinthala <praveen.chinthala@aveva.com> 1456918823 +0530	merge hotfix-2: Fast-forward
+.git/logs/HEAD:d71526f7943b5e317c2f2c9392a88232b7a925d8 d71526f7943b5e317c2f2c9392a88232b7a925d8 Praveen Chinthala <praveen.chinthala@aveva.com> 1457416745 +0530	checkout: moving from master to bugfix-1234
+.git/logs/HEAD:d71526f7943b5e317c2f2c9392a88232b7a925d8 bff43c796a79a9fbcecfa3758d8a56da49ad7846 Praveen Chinthala <praveen.chinthala@aveva.com> 1457416911 +0530	commit: Fixing readme text, BUG-1234
+.git/logs/HEAD:bff43c796a79a9fbcecfa3758d8a56da49ad7846 d71526f7943b5e317c2f2c9392a88232b7a925d8 Praveen Chinthala <praveen.chinthala@aveva.com> 1457417217 +0530	checkout: moving from bugfix-1234 to master
+.git/logs/HEAD:d71526f7943b5e317c2f2c9392a88232b7a925d8 bff43c796a79a9fbcecfa3758d8a56da49ad7846 Praveen Chinthala <praveen.chinthala@aveva.com> 1457417228 +0530	merge bugfix-1234: Fast-forward
+.git/logs/HEAD:bff43c796a79a9fbcecfa3758d8a56da49ad7846 56264a1d3538f33021f3fd44d65921831b47954a Praveen Chinthala <praveen.chinthala@aveva.com> 1457417354 +0530	rebase: checkout 56264a1
+.git/logs/HEAD:56264a1d3538f33021f3fd44d65921831b47954a bff43c796a79a9fbcecfa3758d8a56da49ad7846 Praveen Chinthala <praveen.chinthala@aveva.com> 1457417450 +0530	rebase: aborting
+.git/logs/HEAD:bff43c796a79a9fbcecfa3758d8a56da49ad7846 5ac5bacf118797becdc343c910e634dd6424e3a4 Praveen Chinthala <praveen.chinthala@aveva.com> 1457417531 +0530	checkout: moving from master to 5ac5bac
+.git/logs/HEAD:5ac5bacf118797becdc343c910e634dd6424e3a4 bff43c796a79a9fbcecfa3758d8a56da49ad7846 Praveen Chinthala <praveen.chinthala@aveva.com> 1457417570 +0530	checkout: moving from 5ac5bacf118797becdc343c910e634dd6424e3a4 to bugfix-1234
+.git/logs/HEAD:bff43c796a79a9fbcecfa3758d8a56da49ad7846 bff43c796a79a9fbcecfa3758d8a56da49ad7846 Praveen Chinthala <praveen.chinthala@aveva.com> 1457417677 +0530	checkout: moving from bugfix-1234 to master
+.git/logs/refs/heads/bugfix-1234:0000000000000000000000000000000000000000 d71526f7943b5e317c2f2c9392a88232b7a925d8 Praveen Chinthala <praveen.chinthala@aveva.com> 1457416745 +0530	branch: Created from HEAD
+.git/logs/refs/heads/bugfix-1234:d71526f7943b5e317c2f2c9392a88232b7a925d8 bff43c796a79a9fbcecfa3758d8a56da49ad7846 Praveen Chinthala <praveen.chinthala@aveva.com> 1457416911 +0530	commit: Fixing readme text, BUG-1234
+.git/logs/refs/heads/feature-1:0000000000000000000000000000000000000000 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456912362 +0530	branch: Created from master
+.git/logs/refs/heads/feature-1:c19da553589e5588290e7807297a80c5ca08ea44 28646cc9967fdd423002120ce13e54bd5f2a6fe3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456912477 +0530	commit: FEature 1
+.git/logs/refs/heads/feature-1:28646cc9967fdd423002120ce13e54bd5f2a6fe3 28646cc9967fdd423002120ce13e54bd5f2a6fe3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456914608 +0530	Branch: renamed refs/heads/feature1 to refs/heads/feature-1
+.git/logs/refs/heads/feature-2:0000000000000000000000000000000000000000 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456914726 +0530	branch: Created from HEAD
+.git/logs/refs/heads/feature-2:c19da553589e5588290e7807297a80c5ca08ea44 f661aae48f33b284344b414b288f31e4295a7a89 Praveen Chinthala <praveen.chinthala@aveva.com> 1456914782 +0530	commit: Added feature2
+.git/logs/refs/heads/hotfix-1:0000000000000000000000000000000000000000 9d99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456912696 +0530	branch: Created from 9d99e2c
+.git/logs/refs/heads/hotfix-1:9d99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 b7708150420d32739b3f30f0dcc5174b2d46af15 Praveen Chinthala <praveen.chinthala@aveva.com> 1456912758 +0530	commit: Adding login text
+.git/logs/refs/heads/hotfix-2:0000000000000000000000000000000000000000 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456918617 +0530	branch: Created from v1.0
+.git/logs/refs/heads/hotfix-2:c19da553589e5588290e7807297a80c5ca08ea44 56264a1d3538f33021f3fd44d65921831b47954a Praveen Chinthala <praveen.chinthala@aveva.com> 1456918692 +0530	commit: Fixing casing
+.git/logs/refs/heads/hotfix-2:56264a1d3538f33021f3fd44d65921831b47954a d71526f7943b5e317c2f2c9392a88232b7a925d8 Praveen Chinthala <praveen.chinthala@aveva.com> 1456918778 +0530	commit (merge): Merged content
+.git/logs/refs/heads/master:0000000000000000000000000000000000000000 15d113eccc3405e79abbc9e47f25b12e8378e0fe Praveen Chinthala <praveen.chinthala@aveva.com> 1456897595 +0530	commit (initial): hello
+.git/logs/refs/heads/master:15d113eccc3405e79abbc9e47f25b12e8378e0fe b41a6f7e9dad03960a9bd96d7f7fdde0412b9490 Praveen Chinthala <praveen.chinthala@aveva.com> 1456897776 +0530	commit: added new line
+.git/logs/refs/heads/master:b41a6f7e9dad03960a9bd96d7f7fdde0412b9490 c6f0b623a9b93e36dfc25a5abe43325b84540c19 Praveen Chinthala <praveen.chinthala@aveva.com> 1456898092 +0530	commit: Added new Files
+.git/logs/refs/heads/master:c6f0b623a9b93e36dfc25a5abe43325b84540c19 b6aaec3322ebdfefa5754044bda861a736bc9e0f Praveen Chinthala <praveen.chinthala@aveva.com> 1456898641 +0530	commit: Added code
+.git/logs/refs/heads/master:b6aaec3322ebdfefa5754044bda861a736bc9e0f 8803f759cf3d97cf9c43372021ec4b41f8ed2c0f Praveen Chinthala <praveen.chinthala@aveva.com> 1456898741 +0530	commit: REmoved File
+.git/logs/refs/heads/master:8803f759cf3d97cf9c43372021ec4b41f8ed2c0f 569bc37502c04abf4d23393d5eea1ab1038a12be Praveen Chinthala <praveen.chinthala@aveva.com> 1456899721 +0530	commit: Some logic
+.git/logs/refs/heads/master:569bc37502c04abf4d23393d5eea1ab1038a12be 8803f759cf3d97cf9c43372021ec4b41f8ed2c0f Praveen Chinthala <praveen.chinthala@aveva.com> 1456899761 +0530	reset: moving to HEAD~1
+.git/logs/refs/heads/master:8803f759cf3d97cf9c43372021ec4b41f8ed2c0f b590f8f32444947525539918c63675ab3d8b45ed Praveen Chinthala <praveen.chinthala@aveva.com> 1456900266 +0530	commit: Added GitIgnore
+.git/logs/refs/heads/master:b590f8f32444947525539918c63675ab3d8b45ed c0b7f9c05c701eeadf278df3c25699945f8f96c7 Praveen Chinthala <praveen.chinthala@aveva.com> 1456908571 +0530	merge origin/master: Fast-forward
+.git/logs/refs/heads/master:c0b7f9c05c701eeadf278df3c25699945f8f96c7 9d99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456909336 +0530	commit: Renaming login
+.git/logs/refs/heads/master:9d99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456909712 +0530	commit: Deleting misc files
+.git/logs/refs/heads/master:c19da553589e5588290e7807297a80c5ca08ea44 28646cc9967fdd423002120ce13e54bd5f2a6fe3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456915548 +0530	merge feature-1: Fast-forward
+.git/logs/refs/heads/master:28646cc9967fdd423002120ce13e54bd5f2a6fe3 b053bca15720e12e4b4bad36bf542e25cc8cad8f Praveen Chinthala <praveen.chinthala@aveva.com> 1456915561 +0530	merge hotfix-1: Merge made by the 'recursive' strategy.
+.git/logs/refs/heads/master:b053bca15720e12e4b4bad36bf542e25cc8cad8f 5ac5bacf118797becdc343c910e634dd6424e3a4 Praveen Chinthala <praveen.chinthala@aveva.com> 1456915693 +0530	commit (merge): Merging File
+.git/logs/refs/heads/master:5ac5bacf118797becdc343c910e634dd6424e3a4 d71526f7943b5e317c2f2c9392a88232b7a925d8 Praveen Chinthala <praveen.chinthala@aveva.com> 1456918823 +0530	merge hotfix-2: Fast-forward
+.git/logs/refs/heads/master:d71526f7943b5e317c2f2c9392a88232b7a925d8 bff43c796a79a9fbcecfa3758d8a56da49ad7846 Praveen Chinthala <praveen.chinthala@aveva.com> 1457417228 +0530	merge bugfix-1234: Fast-forward
+.git/logs/refs/remotes/origin/bugfix-1234:0000000000000000000000000000000000000000 bff43c796a79a9fbcecfa3758d8a56da49ad7846 Praveen Chinthala <praveen.chinthala@aveva.com> 1457417156 +0530	update by push
+.git/logs/refs/remotes/origin/master:0000000000000000000000000000000000000000 b590f8f32444947525539918c63675ab3d8b45ed Praveen Chinthala <praveen.chinthala@aveva.com> 1456908319 +0530	update by push
+.git/logs/refs/remotes/origin/master:b590f8f32444947525539918c63675ab3d8b45ed c0b7f9c05c701eeadf278df3c25699945f8f96c7 Praveen Chinthala <praveen.chinthala@aveva.com> 1456908532 +0530	fetch: fast-forward
+.git/logs/refs/remotes/origin/master:c0b7f9c05c701eeadf278df3c25699945f8f96c7 9d99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 Praveen Chinthala <praveen.chinthala@aveva.com> 1456909430 +0530	update by push
+.git/logs/refs/remotes/origin/master:9d99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 c19da553589e5588290e7807297a80c5ca08ea44 Praveen Chinthala <praveen.chinthala@aveva.com> 1456909741 +0530	update by push
+.git/logs/refs/remotes/origin/master:c19da553589e5588290e7807297a80c5ca08ea44 5ac5bacf118797becdc343c910e634dd6424e3a4 Praveen Chinthala <praveen.chinthala@aveva.com> 1456915751 +0530	update by push
+.git/logs/refs/remotes/origin/master:5ac5bacf118797becdc343c910e634dd6424e3a4 d71526f7943b5e317c2f2c9392a88232b7a925d8 Praveen Chinthala <praveen.chinthala@aveva.com> 1456918879 +0530	update by push
+.git/logs/refs/remotes/origin/master:d71526f7943b5e317c2f2c9392a88232b7a925d8 bff43c796a79a9fbcecfa3758d8a56da49ad7846 Praveen Chinthala <praveen.chinthala@aveva.com> 1457417290 +0530	update by push
+Binary file .git/objects/07/8abe4dcd0fa2b3f1904ebdf8f35a1f108e2c03 matches
+Binary file .git/objects/0f/71a7194817464eecfe022fe230903b1eccce8b matches
+.git/objects/15/d113eccc3405e79abbc9e47f25b12e8378e0fe:x≠ŒA
+.git/objects/15/d113eccc3405e79abbc9e47f25b12e8378e0fe:√ Ö·Æ=≈ÏAMF;PJ°ËF1`bõÛW(ΩA∑?èÎ∂≠¨÷ßﬁDÄ$§¥$–öôH#yÁ-≈D—/Åÿê†wlø{Æûçëy›{Ê¬p}}iä?∫è‰‡)÷ÌfAw!èÑp÷8k5tËÚá)ï•î™>í¨Bã
+.git/objects/17/e7aafe10dae3f51c47e1048e037105ae9ec8c6:x+)JMU044f040031Q–Kœ,…LœÀ/Je»©ú<I><témøåiÈúπÜπsºÓAUÂ‰ßgÊÈïTî0<∏ﬂ˚¢º# Ûj©ë∞WºÓ$Œ∂«ﬂ°ääRSrS¡™
+.git/objects/17/e7aafe10dae3f51c47e1048e037105ae9ec8c6:ïÔÜºøæ3oÕ˝4?›nœŒmîfä/ê
+Binary file .git/objects/1d/17eddecafd43f106b78e1d17151519b07e5c95 matches
+Binary file .git/objects/1f/62fda9413e6e5c820eecbfcd4e883f03ca813b matches
+.git/objects/28/646cc9967fdd423002120ce13e54bd5f2a6fe3:x≠èM
+.git/objects/28/646cc9967fdd423002120ce13e54bd5f2a6fe3:¬0Ö]ÁŸeíf:	à¢kØ0Lß¥`iœo@ºÅÀ˜Ò¯xO÷yûäıËO%´ZGJÃÉ:ËY€ù™!DÖñ kRâ“ôç≥.≈äK=#∂ì"∆Ë(E üà#
+.git/objects/28/646cc9967fdd423002120ce13e54bd5f2a6fe3:CT¡^∆5€WÊCu±˜qZ »o∂óÌã˘°[≠‹»:_≠ÿ%Áë=∂`*≠Éã˛Aeû.{ÆßÕp°PÚ
+Binary file .git/objects/2a/60d9f882ffa4e02cb1e83f47115c355ca0b923 matches
+Binary file .git/objects/3c/5eba4dbd990544d8951d5af552234310c756fd matches
+Binary file .git/objects/44/e429a0570a762239c566f81765c72c198f6dbb matches
+Binary file .git/objects/45/195d58cb5baf4d851a3a197b64e2081022119d matches
+Binary file .git/objects/4b/ed83fbb97e556f65f0a15c95772d50a2d2ae57 matches
+Binary file .git/objects/4c/7e120b3c363c968912671a77c368bfdcdfda2a matches
+.git/objects/53/066b9cc5945183c1a2ef5b679a6d1288c2729b:x+)JMU044f040031Q–Kœ,…LœÀ/Je»©ú<I><témøåiÈúπÜπsºÓAUÂ‰ßgÊÈïTî0<∏ﬂ˚¢º# Ûj©ë∞WºÓ$Œ∂«ﬂ°ääRSrS¡™d≈ﬂﬁ;ı◊˘#€ˆ>YqQQ…u1SWñ-õ
+.git/objects/56/264a1d3538f33021f3fd44d65921831b47954a:x≠éA
+.git/objects/56/264a1d3538f33021f3fd44d65921831b47954a:¬@E]œ)≤ Ã¥ô& "ÆΩBöF[∞≠‘Q<æ‚\}x<>Oói3DLõºö÷>•éUëTkêhÏRÀí˙â4∂ë;wó’Ê∏ƒâë(≤∑ñ|QZ!Ø®‚…§iú<Û∞¨p^Âe6√qÁ<»M`wˇ¢JËPîóT∫L{&î8¬÷ó8Wh	Œˆá+wﬂ„|ïG˜˜öR#
+Binary file .git/objects/56/9bc37502c04abf4d23393d5eea1ab1038a12be matches
+Binary file .git/objects/5a/c5bacf118797becdc343c910e634dd6424e3a4 matches
+Binary file .git/objects/61/dfa56bc3df041986abf46231eac0df057731b2 matches
+Binary file .git/objects/63/b512ba1ecc6c067abe70a7759ce9797ca5b780 matches
+Binary file .git/objects/6c/7993921f57559c3d8f1c35759c9d316d9c4ade matches
+Binary file .git/objects/6f/64c9a2c948afe1a70870efdd0e961cca4754a2 matches
+Binary file .git/objects/71/23dd54efd7b96eacdf664e2d8b4989b680fc23 matches
+Binary file .git/objects/72/0e5c8c659da98f04ea545ce77e1aec0f17711d matches
+Binary file .git/objects/86/f6bc6acc0c155ca950c6e5a8622b61ba41df07 matches
+.git/objects/88/03f759cf3d97cf9c43372021ec4b41f8ed2c0f:x≠ŒM
+.git/objects/88/03f759cf3d97cf9c43372021ec4b41f8ed2c0f:¬0`◊9≈ÏI&øAt-ﬁ`íLh°iKâ=øÒ¬[}</Õµ–⁄C[ô!wòTó	K!URë…Î¨PrFÃÅˆ¯êùXhÂ©AtDú¥F‰ò≤ﬁiLÃú"Ø]LÀ"Ë›˙yÖÁJÛ∑~òZO#¡y˘“)˝Ë∫W6:•π^@ÎBºQpîVK±Î~∏Ò¶ƒÎ^Áç3<Üë≈⁄Tx
+Binary file .git/objects/90/8fb6e5a2b7886e7d9e564230e5d287ee5373d4 matches
+Binary file .git/objects/93/6400a9d9e24be435763baf6337db133fe666d0 matches
+Binary file .git/objects/9d/99e2c14e1a9fbb8b6eeb34e07e4169b8a9d5d3 matches
+.git/objects/9e/bff4f1b52139905976729cf9c74b9a19e576a1:x+)JMU0∂`040031Q(JML…M’+©(aêO˙ª“—./¶âÔÕ˛≥~ˆÃß≠YUù
+Binary file .git/objects/9f/77842528591cb3a2ac7c972606bc32c060e424 matches
+Binary file .git/objects/a4/1c9e37ab5f998bda0b4f5a631dcc91b4c6158a matches
+Binary file .git/objects/aa/819dc4c0b05403aca385353fd8fe85c93d5311 matches
+.git/objects/b0/53bca15720e12e4b4bad36bf542e25cc8cad8f:x≠œMJ1Üa◊9Ev≥áJ*ï\^°íTL√t˜‚‡ÒmëπÅ€óáæ≤ØÎ25˜0áàN[ˆBlsà—K®I»;ã Tm"Ñ´SW≤Mm£wæîî|hµ˛:∞∆BÉB.Wjñ}º˚DC‡,T¥S∆Ü–†ñB&∏l´Û‹)˛ö}˙cMd”o}ŸfÁÎÁÎ_:ó{z=»çœe__¥q‰ì!ÚF?!®£ß¸√îzóÒ):ﬁJ◊ßæœ∂|?ôì˙R¶b™
+Binary file .git/objects/b2/cae3721d7a54b7ad846e29fc098c5e87efa47f matches
+.git/objects/b4/1a6f7e9dad03960a9bd96d7f7fdde0412b9490:x≠Œ[j√0Ö·<kÛ^£[$CÖn†[çé∞!ñÉQ“Ì◊P∫Éº~¸énÎ∫r1ù∆ß,°jÂ&Æ¯f'(µÂÊ£ÿf9√){Ûê}êç’ZUıÅ#“$•ËÑêöã≈:dü2∏¡»sÃ€NﬂªºÄN_Û“«,w°Î„èŒ˙OüGÚí≥nÎçlàó<•î.Ù¡—≥9Ù8<Ü)#µ¢R«›óÛ)ÂTò
+.git/objects/b5/90f8f32444947525539918c63675ab3d8b45ed:x≠ŒAä√0Ö·Æ}
+.git/objects/b5/90f8f32444947525539918c63675ab3d8b45ed:ÌA∂ÂƒÜRZf1t7WPeπ	4I1nŒ?Å°7òÌ«œ„…:œS‚°UU(öÓQô=ÜﬁFå—S&õ<i"Àb]°í(dÛ‚™KÉ—ó!$)>ßAJÚ~pË¨
+.git/objects/b5/90f8f32444947525539918c63675ab3d8b45ed:›…ñ®Ÿ	√Ô6Æ~*o™|ç”“F~2ú^‘…á.{≤q'Î|K°OàÆÔ·à¡£Ÿu?‹Ù¶Ã5gÕ=µ€cY´ö_F≤Sr
+.git/objects/b6/aaec3322ebdfefa5754044bda861a736bc9e0f:x≠Œ[
+.git/objects/b6/aaec3322ebdfefa5754044bda861a736bc9e0f:¬0Öaü≥äyJíI“D7‡&ì)-ÿ!v˝ƒ¯˙q8¸º-À\¡z<’"é{1V'd»1—ÿ–Í˚C3Á1ì%µSëµáQß`ëbä(Ú»÷ìß$—˙48Ô4õ®Ë]ß≠¿≥–!≤¬cö◊:—ã‡≤©„›⁄‰†é∑Â
+.git/objects/b6/aaec3322ebdfefa5754044bda861a736bc9e0f:∆˘÷0g‡¨=j’¥W˘√ï∫Á,xÀ¢>R
+Binary file .git/objects/b7/708150420d32739b3f30f0dcc5174b2d46af15 matches
+.git/objects/bf/f43c796a79a9fbcecfa3758d8a56da49ad7846:x≠ŒMJƒ@Üa◊}ä⁄´CWıOuÉà(Ë÷ç®T*&`í°iá9æÒn^>>›◊uÈ@å7ΩôAùòK§D%U‘!â≤V¶ÏÛ†Å‘goë¢;K≥≠√»ò(O\cíd•â¥ÜJR
+.git/objects/bf/f43c796a79a9fbcecfa3758d8a56da49ad7846:X*•±8˘ÓÛﬁ‡Ω…≈lÉóyŸ˙,_Á_:È=…EN∫ØèÄ1qƒ\·÷ß‡›°«·nˇ0Â^óÎ≤}B3WÉn◊~œo˜H!∫™¨U∆
+Binary file .git/objects/c0/b7f9c05c701eeadf278df3c25699945f8f96c7 matches
+.git/objects/c1/9ac9db75474dc86b3a9782da170f25408a22e1:x% ¡
+.git/objects/c1/9ac9db75474dc86b3a9782da170f25408a22e1:!Ä·Œ>≈¯ç£∂±◊Œ åK∞%îAèÂw¸˘ÛR3 ·Í$ÀRµ÷j€ÅÛ∆€ÑLéÜB¥6X®∞µÏ›hp Ãv3:õ‘Å˘ˆò·UÔM>MÌ:ïBà¶xÖÀyäøOä§ˆ~
+.git/objects/c1/9ac9db75474dc86b3a9782da170f25408a22e1:™}«¯ÄÍ$%‘
+Binary file .git/objects/c1/9da553589e5588290e7807297a80c5ca08ea44 matches
+.git/objects/c6/f0b623a9b93e36dfc25a5abe43325b84540c19:x≠ŒAj√0Ö·ÆuäŸ¬HñF(%°êuÆ0íFÿ€¡Q“Î◊rÉn?èø¨Û<up!}ÙMºWÔX0DîHŒ\QK6R(—À©QÕŸ‹d”•CˆV®EÂ*&Œï©∆[≠äﬁ∫Ãû—»£èÎóMû™¸å”“Gπ
+.git/objects/c6/f0b623a9b93e36dfc25a5abe43325b84540c19:|›^t(o:Óìß :ÉıÅ'dü4ªÓ¡]ˇ· úˆ¬
+.git/objects/c6/f0b623a9b93e36dfc25a5abe43325b84540c19:ã˛¬y∫Í›¸=.Se
+Binary file .git/objects/c8/68a4e1950fba180edf71c69a89f826d0b0d8d6 matches
+Binary file .git/objects/cb/61baa267f061505f43364ac0948ad6a877d85c matches
+Binary file .git/objects/d7/1526f7943b5e317c2f2c9392a88232b7a925d8 matches
+Binary file .git/objects/d9/2c19da2ffa1fcf0c73d120ed22d8ad8a7b82e6 matches
+Binary file .git/objects/e0/df8de877885a49d57532134a5f2d920986e3f7 matches
+Binary file .git/objects/e0/eb5cc78c01388251473e72a192eee6fef11961 matches
+Binary file .git/objects/e2/1948b4eb6ee43ed4009d7b887e7ce8278c2493 matches
+Binary file .git/objects/e2/9737f7855f09a94847970e9d8ac61187332224 matches
+Binary file .git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391 matches
+Binary file .git/objects/e8/31a619be251e67b027a8b8cc5469adad40853e matches
+Binary file .git/objects/f6/61aae48f33b284344b414b288f31e4295a7a89 matches
+.git/objects/f8/4e505edf74c71c3125a788ced2987a988b82a7:x- A
+.git/objects/f8/4e505edf74c71c3125a788ced2987a988b82a7:Ö F·7æ´¯]A4´ –(à¶ço!XÇ¥¸ﬂ7;pVVHY˝ˆ>!®Œ0ËNQg≠;w\·`$~5•¥¬¨L„¨øè-66Èé,ˇŸÁDImÜ›ÓŒ‚0W‚H/á$w
+Binary file .git/objects/fe/9b8eaa30561808834d41934e941ac12f4f945d matches
+.git/ORIG_HEAD:bff43c796a79a9fbcecfa3758d8a56da49ad7846
+.git/refs/heads/bugfix-1234:bff43c796a79a9fbcecfa3758d8a56da49ad7846
+.git/refs/heads/feature-1:28646cc9967fdd423002120ce13e54bd5f2a6fe3
+.git/refs/heads/feature-2:f661aae48f33b284344b414b288f31e4295a7a89
+.git/refs/heads/hotfix-1:b7708150420d32739b3f30f0dcc5174b2d46af15
+.git/refs/heads/hotfix-2:d71526f7943b5e317c2f2c9392a88232b7a925d8
+.git/refs/heads/master:bff43c796a79a9fbcecfa3758d8a56da49ad7846
+.git/refs/remotes/origin/bugfix-1234:bff43c796a79a9fbcecfa3758d8a56da49ad7846
+.git/refs/remotes/origin/master:bff43c796a79a9fbcecfa3758d8a56da49ad7846
+.git/refs/tags/v1.0:c19da553589e5588290e7807297a80c5ca08ea44
+.git/TAG_EDITMSG:
+.git/TAG_EDITMSG:#
+.git/TAG_EDITMSG:# Write a message for tag:
+.git/TAG_EDITMSG:#   v2.0
+.git/TAG_EDITMSG:# Lines starting with '#' will be ignored.
+.git/TAG_EDITMSG:Good!!!
+.gitignore:#Ignore logs
+.gitignore:/logs/*.txt
+.gitignore:/logs/*.log
+login.txt:This is supposed to be a login page
+readme.txt:This is a readme file.
+readme.txt:It has 2 features
+readme.txt:Feature 1
+readme.txt:Feature 2
+readme.txt:Added Bugfix

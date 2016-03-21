@@ -1,0 +1,4 @@
+D:\Samples\git-lessons\bin\Debug\ConsoleApplication.exe
+D:\Samples\git-lessons\bin\Debug\ConsoleApplication.pdb
+D:\Samples\git-lessons\obj\x86\Debug\ConsoleApplication.exe
+D:\Samples\git-lessons\obj\x86\Debug\ConsoleApplication.pdb
